@@ -1,3 +1,23 @@
+const text = "Feliz 3 anos ❤️";
+const h1 = document.querySelector(".f3a");
+h1.textContent = ""; // Use textContent aqui também
+let i = 0;
+
+function typeWriter() {
+  if (i < text.length) {
+    h1.textContent += text.charAt(i); // Mudança para textContent
+    i++;
+    setTimeout(typeWriter, 200);
+  }
+}
+
+const entrada = document.querySelector(".btn-entrar")
+entrada.addEventListener("click", () =>{
+    setTimeout(() => {
+        typeWriter()
+    }, 200);
+})
+
 // Data do início: 4 de Março de 2023
 const startDate = new Date("2023-03-04T00:00:00"); 
 
