@@ -10,12 +10,27 @@ function typeWriter() {
     setTimeout(typeWriter, 200);
   }
 }
-
+const pause = document.querySelector(".pause")
+const music = document.querySelector("#mp3file")
 const entrada = document.querySelector(".btn-entrar")
+const tocar = "Tocar 🎵"
+const pausar = "Pausar 🎵"
+
 entrada.addEventListener("click", () =>{
     setTimeout(() => {
         typeWriter()
     }, 200);
+    music.play()
+})
+pause.addEventListener("click", () => {
+
+    if (music.paused) {
+        music.play()
+        pause.innerText = tocar
+    } else {
+        music.pause()
+        pause.innerText = pausar
+    }
 })
 
 // Data do início: 4 de Março de 2023
