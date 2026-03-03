@@ -1,37 +1,36 @@
 const text = "Feliz 3 anos ❤️";
 const h1 = document.querySelector(".f3a");
-h1.textContent = ""; // Use textContent aqui também
+if(h1) h1.textContent = ""; 
 let i = 0;
 
 function typeWriter() {
   if (i < text.length) {
-    h1.textContent += text.charAt(i); // Mudança para textContent
+    h1.textContent += text.charAt(i);
     i++;
     setTimeout(typeWriter, 200);
   }
 }
-const pause = document.querySelector(".pause")
-const music = document.querySelector("#mp3file")
-const entrada = document.querySelector(".btn-entrar")
-const tocar = "Tocar 🎵"
-const pausar = "Pausar 🎵"
+
+const pause = document.querySelector(".pause");
+const music = document.querySelector("#mp3file");
+const entrada = document.querySelector(".btn-entrar");
 
 entrada.addEventListener("click", () =>{
     setTimeout(() => {
-        typeWriter()
+        typeWriter();
     }, 200);
-    music.play()
-})
-pause.addEventListener("click", () => {
+    if(music) music.play();
+});
 
+pause.addEventListener("click", () => {
     if (music.paused) {
-        music.play()
-        pause.innerText = pausar
+        music.play();
+        pause.style.opacity = "1";
     } else {
-        music.pause()
-        pause.innerText = tocar
+        music.pause();
+        pause.style.opacity = "0.5"; // Dá um efeito visual de pausado
     }
-})
+});
 
 // Data do início: 4 de Março de 2023
 const startDate = new Date("2023-03-04T00:00:00"); 
@@ -39,25 +38,23 @@ const startDate = new Date("2023-03-04T00:00:00");
 function updateCounter() {
     const now = new Date();
     const diff = now - startDate;
-
     const daysTotal = Math.floor(diff / (1000 * 60 * 60 * 24));
     const years = Math.floor(daysTotal / 365);
     const remainingDays = daysTotal % 365;
-
-    document.getElementById("counter").innerHTML =
-        `Estamos juntos há <strong>${years} anos</strong> e <strong>${remainingDays} dias</strong> ❤️`;
+    const counterEl = document.getElementById("counter");
+    if(counterEl) {
+        counterEl.innerHTML = `Estamos juntos há <strong>${years} anos</strong> e <strong>${remainingDays} dias</strong> ❤️`;
+    }
 }
 
 updateCounter();
 setInterval(updateCounter, 1000);
 
-// --- SISTEMA DE PARTÍCULAS (CANVAS) ---
+// --- SISTEMA DE PARTÍCULAS ---
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
-
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-
 let particlesArray = [];
 
 class Particle {
@@ -104,7 +101,6 @@ window.addEventListener('resize', () => {
     init();
 });
 
-// --- CORAÇÕES CAINDO ---
 function createHeart() {
     const heart = document.createElement("div");
     heart.classList.add("heart-falling");
@@ -112,25 +108,19 @@ function createHeart() {
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.animationDuration = Math.random() * 3 + 3 + "s";
     document.body.appendChild(heart);
-
     setTimeout(() => { heart.remove(); }, 6000);
 }
-
 setInterval(createHeart, 600);
 
-// --- FUNÇÃO DE ENTRADA ---
 function iniciarSite() {
     const overlay = document.getElementById('overlay');
     const iframe = document.getElementById('spotify-player');
-
     overlay.style.opacity = '0';
     setTimeout(() => {
         overlay.style.display = 'none';
     }, 1000);
-
     let currentSrc = iframe.src;
     if (!currentSrc.includes('autoplay=1')) {
         iframe.src = currentSrc + "&autoplay=1";
     }
 }
-
