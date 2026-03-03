@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz 3 Anos ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="overlay">
+        <div class="texto-entrada">Prepare o coração... 🤍</div>
+        <button class="btn-entrar" onclick="iniciarSite()">Abrir Surpresa</button>
+    </div>
+
+    <canvas id="particles"></canvas>
+
+<div class="music">
+    <iframe id="spotify-player" style="border-radius:12px" 
+        src="https://open.spotify.com/embed/track/3apbQXcMP7POf6cgciCWpA?utm_source=generator" width="100%" height="152" 
+        frameBorder="0" allowfullscreen="" 
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
+    </iframe>
+</div>
+
+    <div class="container">
+        <h1>Feliz 3 Anos ❤️</h1>
+        <h2>Meu amor,</h2>
+        <div class="counter" id="counter">Carregando momentos...</div>
+        <div class="message">
+            Foram os melhores anos da minha vida.<br>
+            Obrigado por cada risada, cada abraço,<br>
+            cada momento que só nós entendemos.<br><br>
+            Que venham muitos outros capítulos da nossa história.
+        </div>
+    </div>
+
+    <div class="m-container">
+        <h3 style="font-family: 'Playfair Display'; color: #ff4d6d; text-align: center; margin-bottom: 20px;">
+            <strong>Próximos Passos...</strong>
+        </h3>
+        <div class="lista">
+            <p>✅ Continuar sendo seu porto seguro</p>
+            <p>✅ Passar mais tempo com você</p>
+            <p>✅ Te irritar mais</p>
+            <p>✅ Te amar mais do que ontem</p>
+        </div>
+        <div class="quote">
+            "Não temos mil fotos, porque estávamos ocupados demais vivendo cada momento."
+        </div>
+    </div>
+
+    <div class="images">
+        <img src="images/WhatsApp Image 2026-03-02 at 19.16.20.jpeg" alt="">
+        <img src="images/WhatsApp Image 2026-03-02 at 19.16.21.jpeg" alt="">
+        <video src="images/WhatsApp Video 2026-03-02 at 19.16.29.mp4" autoplay muted loop></video>
+        <video src="images/primeirovideo.mp4" autoplay muted loop></video>
+        <img src="images/ela.jpeg" alt="">
+        <img src="images/elaemburrada.jpeg" alt="">
+        <img src="images/eueela.jpeg" alt="">
+    </div>
+
+    <script src="index.js"></script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>

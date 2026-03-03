@@ -1,0 +1,156 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(-45deg, #ff4e8a, #ff9a9e, #fad0c4, #ffdde1);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container, .m-container {
+    position: relative;
+    z-index: 2;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    max-width: 700px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.music {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 25px;
+    z-index: 10;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.counter {
+    font-size: 1.2rem;
+    margin: 15px 0;
+}
+
+.images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 1000px;
+    padding-bottom: 50px;
+    z-index: 2;
+}
+
+.images img, .images video {
+    width: 100%; /* Ocupa largura total no mobile */
+    max-width: 300px; /* Mas não passa de 300px no desktop */
+    height: auto;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 6px solid white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.lista p {
+    margin-bottom: 8px;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.quote {
+    margin-top: 25px;
+    font-style: italic;
+    border-left: 4px solid #fff;
+    padding-left: 15px;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+#particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+#overlay {
+    position: fixed;
+    inset: 0;
+    background: #ff4d6d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 20px;
+    transition: opacity 1s ease;
+}
+
+.heart-falling {
+    position: fixed;
+    top: -10%;
+    z-index: 3;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to { transform: translateY(110vh); }
+}
+
+.btn-entrar {
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    background: white;
+    color: #ff4d6d;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* AJUSTES PARA CELULAR (IPHONE 11 E SIMILARES) */
+@media (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .container, .m-container {
+        padding: 20px;
+    }
+
+    .images img, .images video {
+        width: 100%; /* Garante que a foto ocupe a largura da tela no iPhone */
+        max-width: 100%;
+    }
+}
