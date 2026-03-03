@@ -26,10 +26,10 @@ pause.addEventListener("click", () => {
 
     if (music.paused) {
         music.play()
-        pause.innerText = tocar
+        pause.innerText = pausar
     } else {
         music.pause()
-        pause.innerText = pausar
+        pause.innerText = tocar
     }
 })
 
@@ -133,3 +133,4 @@ function iniciarSite() {
         iframe.src = currentSrc + "&autoplay=1";
     }
 }
+
