@@ -32,18 +32,31 @@ pause.addEventListener("click", () => {
     }
 });
 
-// Data do início: 4 de Março de 2023
-const startDate = new Date("2023-03-04T00:00:00"); 
+// --- LÓGICA DA DATA CORRIGIDA ---
+const startDate = new Date(2023, 2, 4); // Março é mês 2 no JavaScript
 
 function updateCounter() {
     const now = new Date();
-    const diff = now - startDate;
-    const daysTotal = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const years = Math.floor(daysTotal / 365);
-    const remainingDays = daysTotal % 365;
+    
+    // Calcula a diferença bruta de anos
+    let years = now.getFullYear() - startDate.getFullYear();
+    
+    // Cria a data do próximo/último aniversário no ano atual
+    let lastAnniversary = new Date(now.getFullYear(), startDate.getMonth(), startDate.getDate());
+    
+    // Se o aniversário ainda não aconteceu este ano, subtrai 1 do total de anos
+    if (now < lastAnniversary) {
+        years--;
+        lastAnniversary.setFullYear(now.getFullYear() - 1);
+    }
+
+    // Calcula os dias restantes com precisão matemática
+    const diffTime = Math.abs(now - lastAnniversary);
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
     const counterEl = document.getElementById("counter");
     if(counterEl) {
-        counterEl.innerHTML = `Estamos juntos há <strong>${years} anos</strong> e <strong>${remainingDays} dias</strong> ❤️`;
+        counterEl.innerHTML = `Estamos juntos há <strong>${years} anos</strong> e <strong>${diffDays} dias</strong> ❤️`;
     }
 }
 
