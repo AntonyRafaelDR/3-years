@@ -44,7 +44,16 @@ body {
     margin-bottom: 25px;
     z-index: 10;
 }
-
+.pause {
+    width: 40px;
+    cursor: pointer;
+    position: fixed;
+    top: 1%;
+    right: 2%;
+}
+.pause img {
+    width: 40px;
+}
 h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
@@ -67,8 +76,8 @@ h1 {
 }
 
 .images img, .images video {
-    width: 100%; /* Ocupa largura total no mobile */
-    max-width: 300px; /* Mas não passa de 300px no desktop */
+    width: 100%; 
+    max-width: 300px; 
     height: auto;
     aspect-ratio: 3/4;
     object-fit: cover;
